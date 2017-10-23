@@ -1,26 +1,27 @@
+// inicializa los pines de los LEDs
 int pin3 = 3;
 int pin5 = 5;
 int pin6 = 6;
-
+// inicializa las variables donde va a guardar el valor de los potenciometros
 int val0 = 0;
 int val1 = 0;
 int val2 = 0;  
-
+// inicializa las variables donde va a guardar el brillo de los LEDs
 double brillo3 = 0;
 double brillo5 = 0;
 double brillo6 = 0;
-
+// inicializa las variables donde va a guardar el porcentaje de intensidad de cada LED
 double porcentaje3 = 0;
 double porcentaje5 = 0;
 double porcentaje6 = 0; 
-
+// inicializa los pines analogicas de los potenciometros
 int analogPin0 = 8;
 int analogPin1 = 9;
 int analogPin2 = 10;
   
 // the setup function runs once when you press reset or power the board
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(9600); // inicializa el puerto serial
   pinMode(pin3, OUTPUT); // luz verde
   pinMode(pin5, OUTPUT); // luz amarilla
   pinMode(pin6, OUTPUT); // luz roja
