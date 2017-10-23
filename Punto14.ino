@@ -18,7 +18,6 @@ int pin06 = 6;
 int LedInterrupt = 4;
 int boton = 2;
 
-
 // Se deben definir los prototipos de las funciones de cada una de las tareas, en este caso se definen tres funciones. En inglés es lo que se llaman Callbacks. Se puede poner el nombre que quiera.
 void tarea01Fun();
 void tarea02Fun();
@@ -28,7 +27,6 @@ void tarea03Fun();
 Task tarea01(2000, TASK_FOREVER, &tarea01Fun, &RealTimeCore); //Tarea que se repite cada 1000 milisegundos indefinidamente
 Task tarea02(3000, TASK_FOREVER, &tarea02Fun, &RealTimeCore); //Tarea que se repite cada 3000 milisegundos indefinidamente
 Task tarea03(5000, TASK_FOREVER, &tarea03Fun, &RealTimeCore); //Tarea que se repite cada 5000 milisegundos indefinidamente
-
 
 // Esta funcion es para la interrupción
 void Interrupt(){
@@ -40,15 +38,12 @@ void Interrupt(){
   digitalWrite(LedInterrupt,LOW);
 }
 
-
 // Ahora se deben definir explícitamente las funciones
 void tarea01Fun(){
   digitalWrite(pin03,HIGH);
   delay(50);
   digitalWrite(pin03,LOW);
   Serial.print("Se ejecuta la tarea 01 encendiendo el led Verde"); //Escribe un string en el puerto serial
-  //Serial.println(millis());
-  
 }
 
 void tarea02Fun(){
@@ -56,7 +51,6 @@ void tarea02Fun(){
   delay(50);
   digitalWrite(pin05,LOW);
   Serial.print("Se ejecuta la tarea 02 encendiendo el led Amarillo"); //Escribe un string en el puerto serial
-  //Serial.println(millis());
 }
 
 void tarea03Fun(){
@@ -66,10 +60,6 @@ void tarea03Fun(){
   Serial.print("Se ejecuta la tarea 03 encendiendo el led Rojo"); //Escribe un string en el puerto serial
   //Serial.println(millis());
 }
-
-
-
-
 
 void setup() {
   // El código que se ponga acá se ejecuta una única vez al inicio:
@@ -93,11 +83,9 @@ void setup() {
   tarea03.enable(); // Se pone el flag de enable para la tarea 03. Por default, las tareas están desabilitadas
 
   attachInterrupt(0, Interrupt, RISING);
-
 }
 
 void loop() {
   // Acá va el código que se repite indefinidamente:
   RealTimeCore.execute(); // Cuando se usa un scheduler, esta instrucción es la única que debería estar en el loop
 }
-
