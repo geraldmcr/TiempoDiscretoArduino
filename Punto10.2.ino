@@ -1,16 +1,11 @@
-/*
- 
-*/
+// inicializa los pines requeridos
+int button2 = 2;
+int pin3 = 3;
+int pin5 = 5;
+int pin6 = 6; 
 
-  int button2 = 2;
-  int pin3 = 3;
-  int pin5 = 5;
-  int pin6 = 6; 
-  
-  
 // the setup function runs once when you press reset or power the board
 void setup() {
-  Serial.begin(9600);
   pinMode(button2, INPUT); // botón
   pinMode(pin3, OUTPUT); // luz verde
   pinMode(pin5, OUTPUT); // luz amarilla
@@ -58,32 +53,28 @@ int salidaLuces(int pin01, int pin02, int pin03, int a, int b, int c){
     digitalWrite(pin02,HIGH);
     digitalWrite(pin03,HIGH);
   }
-
   return 0;
 }
 
 // the loop function runs over and over again forever
 void loop() {
+  salidaLuces(pin3,pin5,pin6,0,0,0); //NEGRO
+  delay(1000); 
 
-        salidaLuces(pin3,pin5,pin6,0,0,0); //NEGRO
-        delay(1000); 
-           
-      if (digitalRead(button2) == HIGH){
-        salidaLuces(pin3,pin5,pin6,0,0,1); //AZUL
-        delay(1000);
-        salidaLuces(pin3,pin5,pin6,0,1,0); //VERDE
-        delay(1000);
-        salidaLuces(pin3,pin5,pin6,0,1,1); //AZUL + VERDE
-        delay(1000);
-        salidaLuces(pin3,pin5,pin6,1,0,0); //ROJO
-        delay(1000);
-        salidaLuces(pin3,pin5,pin6,1,0,1); //ROJO + AZUL
-        delay(1000);
-        salidaLuces(pin3,pin5,pin6,1,1,0); //ROJO + VERDE
-        delay(1000);
-        salidaLuces(pin3,pin5,pin6,1,1,1); //BLANCO
-        delay(1000);
-      }
-      
-
+  if (digitalRead(button2) == HIGH){
+    salidaLuces(pin3,pin5,pin6,0,0,1); //AZUL
+    delay(1000);
+    salidaLuces(pin3,pin5,pin6,0,1,0); //VERDE
+    delay(1000);
+    salidaLuces(pin3,pin5,pin6,0,1,1); //AZUL + VERDE
+    delay(1000);
+    salidaLuces(pin3,pin5,pin6,1,0,0); //ROJO
+    delay(1000);
+    salidaLuces(pin3,pin5,pin6,1,0,1); //ROJO + AZUL
+    delay(1000);
+    salidaLuces(pin3,pin5,pin6,1,1,0); //ROJO + VERDE
+    delay(1000);
+    salidaLuces(pin3,pin5,pin6,1,1,1); //BLANCO
+    delay(1000);
+  }
 }
