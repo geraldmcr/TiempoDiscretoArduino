@@ -1,15 +1,16 @@
+// inicializa los pines de los LEDs
 int pin3 = 3;
 int pin5 = 5;
 int pin6 = 6;
-
+// inicializa las variables donde va a guardar los valores de los potenciometros
 int val0 = 0;
 int val1 = 0;
 int val2 = 0;  
-
+// inicializa las variables donde va a guardar el valor del brillo del LED
 double brillo3 = 0;
 double brillo5 = 0;
 double brillo6 = 0;
-
+// Inicializa los pines analogicos de los potenciometros
 int analogPin0 = 8;
 int analogPin1 = 9;
 int analogPin2 = 10;
